@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        #p{
+            color: red;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<p id="p">登录失败</p>
+<form action="/login" id="import-form">
+
+
+    用户名：<input type="text" name="username" id="username">
+    <br/>
+    密  码：<input type="password" name="password" id="password">
+    <br/>
+    <input type="button" id= "submit" value="提交" onclick="login()">
+
+
+</form>
+<iframe name="form" id="form" style="display:none"></iframe>
+<script>
+
+
+    function login() {
+        $.ajax({
+            url: "/login",
+            data: {username: $('#username').val(),password:$('#password').val()},
+            type: "GET",
+            //dataType: "json",
+            success: function(data) {
+                // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
+                if(data != null && data=='true'){
+                    alert('登录成功！');
+                    window.location.href = "/index";
+                }else {
+                    //alert('登录失败!用户名或密码错误请重新输入！');
+                    $("#p").html("登录失败!用户名或密码错误请重新输入！");
+                }
+                //alert(data);
+            }
+
+        });
+
+    }
+</script>
+<button onclick="ajax()">ajax请求</button>
+<a href="http://localhost/ajax">ajax</a>
+<script>
+    function  ajax(){
+        alert("触发点击事件");
+        alert($('#password').val());
+        $.ajax({
+            url: "/ajax",
+            data: {username: $('#username').val(),password: $('#password').val()},
+            type: "POST",
+            //dataType: "json",
+            success: function(data) {
+                // data = jQuery.parseJSON(data);  //dataType指明了返回数据为json类型，故不需要再反序列化
+                alert(data);
+            }
+        });
+    }
+
+
+</script>
+
+</body>
+</html>
+
+
