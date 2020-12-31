@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginController {
-    public static String Login_status;    //登录状态 111
+    public static String Login_status;    //登录状态 1112
     @Autowired
     LoginController loginController;
     @Autowired
