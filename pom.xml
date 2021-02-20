@@ -50,6 +50,16 @@
 
 			<version>2.0.5.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.easyproject</groupId>
+			<artifactId>orai18n</artifactId>
+			<version>12.1.0.2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
